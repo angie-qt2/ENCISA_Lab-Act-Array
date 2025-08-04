@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ACt1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] ages = new int[5];
+            int teenCount = 0;
+
+            Console.WriteLine("Enter ages of 5 customers:");
+
+            for (int i = 0; i < ages.Length; i++)
+            {
+                while (true)
+                {
+                    Console.Write($"Customer #{i + 1} age: ");
+                    if (int.TryParse(Console.ReadLine(), out int age))
+                    {
+                        if (age >= 10 && age <= 99)
+                        {
+                            ages[i] = age;
+                            if (age >= 13 && age <= 19)
+                            {
+                                teenCount++;
+                            }
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid age. Please enter an age between 10 and 99.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter a valid integer.");
+                    }
+                }
+            }
+
+            Console.WriteLine("\nValid Ages:");
+            foreach (int age in ages)
+            {
+                Console.WriteLine(age);
+            }
+            Console.WriteLine($"Number of teenagers (ages 13-19): {teenCount}");
+        }
+    }
+}

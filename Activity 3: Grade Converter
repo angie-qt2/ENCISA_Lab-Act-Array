@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Array3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Initialize array to store 5 scores
+            float[] scores = new float[5];
+
+            // Input 5 percentage scores
+            Console.WriteLine("Enter 5 percentage scores:");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write($"Score {i + 1}: ");
+                scores[i] = float.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("\nResults:");
+
+            // Process each score
+            for (int i = 0; i < 5; i++)
+            {
+                // Convert score to grade using if-else
+                string grade;
+                if (scores[i] >= 90)
+                    grade = "A";
+                else if (scores[i] >= 80)
+                    grade = "B";
+                else if (scores[i] >= 70)
+                    grade = "C";
+                else if (scores[i] >= 60)
+                    grade = "D";
+                else
+                    grade = "F";
+
+                // Print score and grade
+                Console.WriteLine($"Score: {scores[i]} - Grade: {grade}");
+
+                // Provide feedback using switch-case
+                switch (grade)
+                {
+                    case "A":
+                        Console.WriteLine("Excellent work! ");
+                        break;
+                    case "B":
+                        Console.WriteLine("Good job! You're doing well!");
+                        break;
+                    case "C":
+                        Console.WriteLine("Average performance. ");
+                        break;
+                    case "D":
+                        Console.WriteLine("Below average. ");
+                        break;
+                    case "F":
+                        Console.WriteLine("Fail. ");
+                        break;
+                }
+
+                Console.WriteLine(); // Add space between results
+            }
+        }
+    }
+}

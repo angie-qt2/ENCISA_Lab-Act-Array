@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Act5
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Initialize array to store 10 numbers
+            int[] num = new int[10];
+            Console.WriteLine("Enter 10 numbers: ");
+            
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write($"Numbers {i + 1}: ");
+                num [i] =Convert.ToInt32(Console.ReadLine());
+            }
+
+            int evenNum = 0;
+            int oddNum = 0;
+            int divisibleBy5Num = 0;
+            
+            // Check each number
+            for (int i = 0; i < 10; i++)
+            {
+                // Check if even or odd
+                if (num[i] % 2 == 0)
+                {
+                    evenNum++;
+                }
+                else
+                {
+                    oddNum++;
+                }
+            
+                // Check if divisible by 5
+                if (num[i] % 5 == 0)
+                {
+                divisibleBy5Num++;
+                }
+            }
+
+            // Show results
+            Console.WriteLine("\nResults:");
+            Console.WriteLine($"Even numbers: {evenNum}");
+            Console.WriteLine($"Odd numbers: {oddNum}");
+            Console.WriteLine($"Numbers divisible by 5: {divisibleBy5Num}");
+
+        }
+    }
+}

@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string candidate1 = "Sunghoon";
+            string candidate2 = "Jake";
+            string candidate3 = "Jay";
+
+            int sunghoonVote = 0;
+            int jakeVotes = 0;
+            int jayVotes = 0;
+
+            Console.WriteLine("Vote for one of these candidates: Sunghoon, Jake, or Jay");
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write($"Vote {i + 1}: ");
+                string vote = Console.ReadLine().ToLower();
+
+                if (vote == candidate1.ToLower())
+                {
+                    sunghoonVote++;
+                }
+                else if (vote == candidate2.ToLower())
+                {
+                    jakeVotes++;
+                }
+                else if (vote == candidate3.ToLower())
+                {
+                    jayVotes++;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid candidate! Vote will not be counted.");
+                }
+            }
+
+            Console.WriteLine("\nVoting Results:");
+            Console.WriteLine($"{candidate1}: {sunghoonVote} votes");
+            Console.WriteLine($"{candidate2}: {jakeVotes} votes");
+            Console.WriteLine($"{candidate3}: {jayVotes} votes");
+
+            if (sunghoonVote > jakeVotes && sunghoonVote > jayVotes)
+            {
+                Console.WriteLine($"\nThe winner is {candidate1}!");
+            }
+            else if (jakeVotes > sunghoonVote && jakeVotes > jayVotes)
+            {
+                Console.WriteLine($"\nThe winner is {candidate2}!");
+            }
+            else if (jayVotes > sunghoonVote && jayVotes > jakeVotes)
+            {
+                Console.WriteLine($"\nThe winner is {candidate3}!");
+            }
+            else
+            {
+                Console.WriteLine("\nIt's a tie!");
+            }
+        }
+        
+    }
+}
